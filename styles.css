@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: #222222;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main_wrapper {
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    width: 50%;
+    padding: 1rem;
+    justify-content: center;
+    align-content: center;
+    border-radius: 10px;
+    box-shadow: #050505 5px 5px 10px 3px;
+}
+
+.main_clock-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main_clock-label {
+    margin-bottom: -5px;
+}
+
+.main_clock-hours_display {
+    font-size: 300%;
+    font-weight: 600;
+}
+
+.alarm_manager-wrapper {
+    border-top: solid 2px rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+}
+
+.alarm_manager-controls {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.alarm_manager-controls--input {
+
+}
+
+.alarm_manager-controls--button {
+    border: none;
+    padding: 8px;
+    margin-left: 1rem;
+    background: #96ff60;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 75%;
+    font-weight: 700;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+.alarm_manager-controls--button i {
+    margin-right: 4px;
+    font-size: 125%;
+}
+
+.alarm_manager-controls--button:hover {
+    background: #86ea50;
+}
+
+.alarm_manager-controls--button:active {
+    background: #96ff60;
+}
+
+.alarm_list {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+    gap: 5px;
+}
+
+.alarm_item {
+    padding: 5px 10px;
+    background: #f7f7f7;
+    border-radius: 7px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.alarm_item-delete_btn {
+    color: #363636;
+    padding: 0px 5px;
+    border-radius: 5px;
+    margin-left: 5px;
+    font-size: 85%;
+    font-weight: 500;
+    cursor: pointer;
+}
+.alarm_item-delete_btn:hover {
+    text-decoration: underline;
+}

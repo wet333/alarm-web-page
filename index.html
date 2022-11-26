@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content= "width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/0135c0c09c.js" crossorigin="anonymous"></script>
+    <title>Custom Alarm</title>
+</head>
+<body>
+    <div class="main_wrapper">
+        <div class="main_clock-wrapper">
+            <span class="main_clock-label">Now :</span>
+            <span id="now-time" class="main_clock-hours_display">10:00</span>
+        </div>
+        <div class="alarm_manager-wrapper">
+            <div class="alarm_manager-controls">
+                <input class="alarm_manager-controls--input" id="alarm-time-input" type="time" step="2">
+                <span class="alarm_manager-controls--button" id="add-alarm-button">
+                    <i class="fa-solid fa-plus"></i>
+                    <span>Agregar</span>
+                </span>
+            </div>
+            <div>
+                <p>Listado de Alarmas:</p>
+                <div id="alarm-list" class="alarm_list">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./app.js"></script>
+</body>
+</html>
