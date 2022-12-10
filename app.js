@@ -2,7 +2,7 @@
 const alarmsArray = [];
 updateMainTimer();
 
-const audioSong = new Audio("./audio/dualipa-levitating.mp3");
+const audioSong = document.getElementById("alarmSound");
 
 // Main Clock
 setInterval(() => {

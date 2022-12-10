@@ -8,7 +8,8 @@
 
 body {
     font-family: 'Open Sans', sans-serif;
-    background: #222222;
+    background: #181818;
+    color: #e1e1e1;
     height: 100vh;
     width: 100vw;
     display: flex;
@@ -19,13 +20,13 @@ body {
 .main_wrapper {
     display: flex;
     flex-direction: column;
-    background: #ffffff;
+    background: #2a2a2a;
     width: 50%;
-    padding: 1rem;
+    padding: 1rem 3rem;
     justify-content: center;
     align-content: center;
     border-radius: 10px;
-    box-shadow: #050505 5px 5px 10px 3px;
+    box-shadow: #0505052e 8px 8px 10px 0px;
 }
 
 .main_clock-wrapper {
@@ -55,7 +56,16 @@ body {
 }
 
 .alarm_manager-controls--input {
+    background: #3a3a3a;
+    border: none;
+    padding: 8px;
+    color: white;
+    border-radius: 5px;
+    box-shadow: inset #00000024 0 0 6px 0px;
+}
 
+.alarm_manager-controls--input ::-webkit-inner-spin-button {
+    color: white;
 }
 
 .alarm_manager-controls--button {
@@ -63,6 +73,7 @@ body {
     padding: 8px;
     margin-left: 1rem;
     background: #96ff60;
+    color: #033800;
     border-radius: 5px;
     cursor: pointer;
     font-size: 75%;
@@ -95,7 +106,7 @@ body {
 
 .alarm_item {
     padding: 5px 10px;
-    background: #f7f7f7;
+    background: #f7f7f70d;
     border-radius: 7px;
     display: flex;
     justify-content: space-between;
@@ -103,7 +114,7 @@ body {
 }
 
 .alarm_item-delete_btn {
-    color: #363636;
+    color: #ff4d4d;
     padding: 0px 5px;
     border-radius: 5px;
     margin-left: 5px;
