@@ -17,15 +17,13 @@ function updateMainTimer() {
 
 function getCurrentTime() {
     const currentDate = new Date();
-    const currentHour = currentDate.getHours() < 10 ? "0" + currentDate.getHours() : currentDate.getHours();
-    const currentMinute = currentDate.getMinutes() < 10 ? "0" + currentDate.getMinutes() : currentDate.getMinutes();
-    const currentSeconds = currentDate.getSeconds() < 10 ? "0" + currentDate.getSeconds() : currentDate.getSeconds();
-
-    return {
-        hour: currentHour,
-        min: currentMinute,
-        sec: currentSeconds,
-    };
+  
+    // Get the hour, minute, and second, add a leading zero if needed
+    const hour = currentDate.getHours().toString().padStart(2, "0");
+    const minute = currentDate.getMinutes().toString().padStart(2, "0");
+    const second = currentDate.getSeconds().toString().padStart(2, "0");
+  
+    return { hour, min: minute, sec: second };
 }
 
 function getAlarmsTime(alarm) {
@@ -54,37 +52,38 @@ addAlarmButton.addEventListener("click", (e) => {
             id: newId,
             timeOut: setTimeout(() => {
                 audioSong.play();
-                alert("Its time to wake up!!!");
-                deleteAlarmFromArray(newId);
+                document.getElementById("modal").style.display = "flex";
+                alarmsArray.forEach((alarm, index) => {
+                    if (alarm.id === newId) {
+                      alarmsArray.splice(index, 1);
+                    }
+                  });
                 createAlarmList();
-                audioSong.pause();
             }, calculateTimeoutMs(alarmTimeInput.value))
         });
     }
     createAlarmList();
     alarmTimeInput.value = 0;
-    console.log(alarmsArray);
 });
 
+// This function takes a string representing the time at which the alarm should be triggered, and returns the number of milliseconds until that time.
 function calculateTimeoutMs(alarm) {
-    let diff = 0;
+    // Convert the current time and alarm time to milliseconds
     const currentTime = getCurrentTime();
     const alarmsTime = getAlarmsTime(alarm);
-
     const currentTimeInMs = (currentTime.hour * 3600000) + (currentTime.min * 60000) + (currentTime.sec * 1000);
     const alarmsTimeInMs = (alarmsTime.hour * 3600000) + (alarmsTime.min * 60000) + (alarmsTime.sec * 1000);
-
-    diff = alarmsTimeInMs - currentTimeInMs;
-
+  
+    // Calculate the difference between the alarm time and the current time
+    let diff = alarmsTimeInMs - currentTimeInMs;
+  
+    // If the alarm time has already passed, add the number of milliseconds in a day
     if (diff < 0) {
-        console.log((24 * 3600000) + (diff));
-        return ((24 * 3600000) + (diff));
-    } else {
-        console.log(diff);
-        return diff;
+      diff += (24 * 3600000);
     }
+  
+    return diff;
 }
-
 
 // Alarm Listings
 function createAlarmList() {
@@ -96,38 +95,48 @@ function createAlarmList() {
 }
 
 function createAlarmListItem(alarm) {
-    const wrapper = document.createElement("div")
+    const wrapper = document.createElement("div");
     const el = document.createElement("span");
-
+    const del = document.createElement("span");
+  
+    // Set the ID and time of the alarm
     el.id = alarm.id;
     el.innerHTML = alarm.time;
-
-    wrapper.className = "alarm_item";
-    wrapper.appendChild(el);
-    wrapper.appendChild(createDeleteButtonElement(alarm));
-    return wrapper;
-}
-
-function createDeleteButtonElement(alarm) {
-    const del = document.createElement("span");
-
-    // Delete button attributes
+  
+    // Set the attributes of the delete button
     del.id = alarm.id;
     del.innerText = "Borrar";
     del.className = "alarm_item-delete_btn";
-    // Delete button onclick
+  
+    // Add an event listener to the delete button
     del.addEventListener("click", (e) => {
-        deleteAlarmFromArray(e.target.id)
-        createAlarmList();
+      // Clear the timeout for the alarm
+      clearTimeout(alarm.timeOut);
+  
+      alarmsArray.forEach((alarm, index) => {
+        if (alarm.id === e.target.id) {
+          alarmsArray.splice(index, 1);
+        }
+      });
+
+      // Update the alarm list
+      createAlarmList();
     });
-    return del;
+  
+    // Merge all elements
+    wrapper.className = "alarm_item";
+    wrapper.appendChild(el);
+    wrapper.appendChild(del);
+  
+    return wrapper;
 }
 
-function deleteAlarmFromArray(alarmId) {
-    alarmsArray.forEach((alarm, index) => {
-        if (alarm.id === alarmId) {
-            clearTimeout(alarm.timeOut);
-            alarmsArray.splice(index, 1);
-        }
-    });
-}
+
+// Modal controls
+const stopAlarmButton = document.getElementById("stop-alarm-btn");
+const modal = document.getElementById("modal");
+
+stopAlarmButton.addEventListener("click", (e) => {
+    audioSong.pause();
+    modal.style.display = "none";
+});
