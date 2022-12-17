@@ -19,6 +19,7 @@ body {
 
 .main_wrapper {
     display: flex;
+    position: relative;
     flex-direction: column;
     background: #2a2a2a;
     width: 50%;
@@ -27,6 +28,55 @@ body {
     align-content: center;
     border-radius: 10px;
     box-shadow: #0505052e 8px 8px 10px 0px;
+}
+
+#music-controller_wrapper {
+    position: absolute;
+    display: flex;
+    top: 0.5rem;
+    right: 0.75rem;
+    padding: 6px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#music-controller_wrapper:hover {
+    color: #ffffff;
+    text-shadow: 0 0 5px #ffffff2b;
+}
+
+#music-controller_list {
+    display: flex;
+    position: absolute;
+    visibility: hidden;
+    top: auto;
+    right: -25%;
+    flex-direction: column;
+    background: #2a2a2a;
+    width: auto;
+    padding: 0.75rem;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: #0505052e 0px 0px 10px 5px;
+}
+
+.music-controller_list--active {
+    display: flex;
+}
+
+#music-controller_list span {
+    cursor: pointer;
+    padding: 2px 0;
+}
+
+#music-controller_list span:hover {
+    text-decoration: underline;
+}
+
+.active-alarm-song {
+    font-weight: 700;
 }
 
 .main_clock-wrapper {
@@ -147,11 +197,12 @@ body {
 
 .modal_bg {
     position: absolute;
-    background: #0000009c;
+    background: #000000c4;
     height: 100vh;
     width: 100vw;
     display: none;
     align-items: center;
+    z-index: 999;
     justify-content: center;
 }
 
@@ -164,6 +215,7 @@ body {
     align-content: center;
     justify-content: center;
     align-items: center;
+    z-index: 999;
 }
 
 .modal_btn {

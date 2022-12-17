@@ -9,11 +9,6 @@
 </head>
 <body>
 
-    <audio id="alarmSound">
-        <source src="./audio/dualipa-levitating.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-
     <div id="modal" class="modal_bg">
         <div class="modal_body">
             <p>Ya es la hora!!!</p>
@@ -23,6 +18,14 @@
     </div>
 
     <div class="main_wrapper">
+
+        <!-- Music Controller Elements -->
+        <div id="music-controller_wrapper">
+            <i class="fa-solid fa-gear"></i>
+        </div>
+        <div id="music-controller_list">
+        </div>
+
         <div class="main_clock-wrapper">
             <span class="main_clock-label">Ahora :</span>
             <span id="now-time" class="main_clock-hours_display">10:00</span>
@@ -43,6 +46,6 @@
             </div>
         </div>
     </div>
-    <script src="./js/app.js"></script>
+    <script src="./js/app.js" type="module"></script>
 </body>
 </html>

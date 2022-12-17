@@ -1,8 +1,10 @@
+import * as musicController from "./alarm-music-controller.js";
+
+musicController.loadMusicController();
+
 // Start Application
 const alarmsArray = [];
 updateMainTimer();
-
-const audioSong = document.getElementById("alarmSound");
 
 // Main Clock
 setInterval(() => {
@@ -12,7 +14,7 @@ setInterval(() => {
 function updateMainTimer() {
     const mainTimer = document.getElementById("now-time");
     const currentTime = getCurrentTime();
-    mainTimer.innerHTML = currentTime.hour + ":" + currentTime.min + ":" + currentTime.sec;
+    mainTimer.innerText = currentTime.hour + ":" + currentTime.min + ":" + currentTime.sec;
 }
 
 function getCurrentTime() {
@@ -51,7 +53,7 @@ addAlarmButton.addEventListener("click", (e) => {
             time: alarmTimeInput.value,
             id: newId,
             timeOut: setTimeout(() => {
-                audioSong.play();
+                musicController.getActiveSong().play();
                 document.getElementById("modal").style.display = "flex";
                 alarmsArray.forEach((alarm, index) => {
                     if (alarm.id === newId) {
@@ -139,7 +141,7 @@ const stopAlarmButton = document.getElementById("stop-alarm-btn");
 const modal = document.getElementById("modal");
 
 stopAlarmButton.addEventListener("click", (e) => {
-    audioSong.pause();
+    musicController.getActiveSong().pause();
     modal.style.display = "none";
 });
 
