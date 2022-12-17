@@ -61,6 +61,7 @@ addAlarmButton.addEventListener("click", (e) => {
                 createAlarmList();
             }, calculateTimeoutMs(alarmTimeInput.value))
         });
+        updateAlarmListVisibility(alarmsArray);
     }
     createAlarmList();
     alarmTimeInput.value = 0;
@@ -116,6 +117,7 @@ function createAlarmListItem(alarm) {
       alarmsArray.forEach((alarm, index) => {
         if (alarm.id === e.target.id) {
           alarmsArray.splice(index, 1);
+          updateAlarmListVisibility(alarmsArray);
         }
       });
 
@@ -140,3 +142,14 @@ stopAlarmButton.addEventListener("click", (e) => {
     audioSong.pause();
     modal.style.display = "none";
 });
+
+// Alarm List Visibility
+
+function updateAlarmListVisibility(alarmList) {
+    const alarmListWrapper = document.getElementsByClassName("alarm-list__wrapper")[0];
+    if (alarmList.length > 0) {
+        alarmListWrapper.style.display = 'block';
+    } else {
+        alarmListWrapper.style.display = 'none';
+    }
+}

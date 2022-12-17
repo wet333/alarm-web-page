@@ -105,6 +105,11 @@ body {
     background: #96ff60;
 }
 
+.alarm-list__wrapper {
+    margin-top: 2rem;
+    display: none;
+}
+
 .alarm_list {
     display: flex;
     flex-direction: column;

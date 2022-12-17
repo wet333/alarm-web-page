@@ -16,14 +16,15 @@
 
     <div id="modal" class="modal_bg">
         <div class="modal_body">
-            <p>Its the time!!!</p>
-            <button id="stop-alarm-btn" class="modal_btn">Stop Alarm</button>
+            <p>Ya es la hora!!!</p>
+            <p>Haga click en "Aceptar" para silenciar la alarma y cerrar este cuadro.</p>
+            <button id="stop-alarm-btn" class="modal_btn">Aceptar</button>
         </div>
     </div>
 
     <div class="main_wrapper">
         <div class="main_clock-wrapper">
-            <span class="main_clock-label">Now :</span>
+            <span class="main_clock-label">Ahora :</span>
             <span id="now-time" class="main_clock-hours_display">10:00</span>
         </div>
         <div class="alarm_manager-wrapper">
@@ -34,8 +35,8 @@
                     <span>Agregar</span>
                 </span>
             </div>
-            <div>
-                <p>Listado de Alarmas:</p>
+            <div class="alarm-list__wrapper">
+                <p>Alarmas configuradas</p>
                 <div id="alarm-list" class="alarm_list">
 
                 </div>
