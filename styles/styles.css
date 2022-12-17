@@ -64,8 +64,16 @@ body {
     box-shadow: inset #00000024 0 0 6px 0px;
 }
 
-.alarm_manager-controls--input ::-webkit-inner-spin-button {
-    color: white;
+.alarm_manager-controls--input::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+  
+.alarm_manager-controls--input::-webkit-inner-spin-button {
+    display: none;
+}
+
+.alarm_manager-controls--input::-webkit-clear-button {
+    display: none;
 }
 
 .alarm_manager-controls--button {
@@ -101,7 +109,7 @@ body {
     display: flex;
     flex-direction: column;
     padding: 10px 0;
-    gap: 5px;
+    gap: 10px;
 }
 
 .alarm_item {
@@ -111,6 +119,10 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.alarm_item:hover {
+    color: white;
 }
 
 .alarm_item-delete_btn {
