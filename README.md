@@ -1,3 +1,3 @@
 # alarm-web-page
 
-Demo Live: https://wetagustin.com/alarma/
+[Demo Website](https://awet-alarma.netlify.app/)
