@@ -1,10 +1,8 @@
 function loadMusicController() {
-
-    console.log("Music controller loaded");
-
     const musicControllerWrapper = document.getElementById("music-controller_wrapper");
     const musicControllerList = document.getElementById("music-controller_list");
 
+    // Al subirla al host agregar un . al inicio de cada ruta para que sea relativa
     loadMusicMP3s(["/audio/back-to-life-birthdae.mp3", "/audio/dualipa-levitating.mp3", "/audio/rocky-theme.mp3", "/audio/weekend-the-hills.mp3"]);
     
     let isPanelVisible = false;
@@ -60,8 +58,6 @@ function loadMusicMP3s(array) {
 }
 
 function setActiveSong(songName) {
-    console.log("Active song: " + songName);
-
     const songItems = document.getElementsByClassName("song-name");
 
     for (let i = 0; i < songItems.length ; i++) {
@@ -76,8 +72,6 @@ function setActiveSong(songName) {
 function getActiveSong() {
     const songItems = document.getElementsByClassName("song-name");
     const audioElements = document.getElementsByTagName("audio");
-
-    console.log(audioElements);
 
     for (let i = 0; i < songItems.length ; i++) {
         if (songItems[i].classList.contains("active-alarm-song")) {

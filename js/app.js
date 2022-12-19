@@ -59,7 +59,8 @@ addAlarmButton.addEventListener("click", (e) => {
                     if (alarm.id === newId) {
                       alarmsArray.splice(index, 1);
                     }
-                  });
+                });
+                updateAlarmListVisibility(alarmsArray);
                 createAlarmList();
             }, calculateTimeoutMs(alarmTimeInput.value))
         });
@@ -146,7 +147,6 @@ stopAlarmButton.addEventListener("click", (e) => {
 });
 
 // Alarm List Visibility
-
 function updateAlarmListVisibility(alarmList) {
     const alarmListWrapper = document.getElementsByClassName("alarm-list__wrapper")[0];
     if (alarmList.length > 0) {
