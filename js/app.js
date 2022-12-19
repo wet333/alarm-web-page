@@ -14,7 +14,11 @@ setInterval(() => {
 function updateMainTimer() {
     const mainTimer = document.getElementById("now-time");
     const currentTime = getCurrentTime();
-    mainTimer.innerText = currentTime.hour + ":" + currentTime.min + ":" + currentTime.sec;
+    const hour = currentTime.hour;
+    const min = currentTime.min;
+    const sec = currentTime.sec;
+
+    mainTimer.innerText = `${hour}:${min}:${sec}`;
 }
 
 function getCurrentTime() {
@@ -29,11 +33,7 @@ function getCurrentTime() {
 }
 
 function getAlarmsTime(alarm) {
-    const alarmArr = alarm.split(":");
-    const alarmHours = parseInt(alarmArr[0]);
-    const alarmMinutes = parseInt(alarmArr[1]);
-    const alarmSeconds = parseInt(alarmArr[2]);
-
+    const [alarmHours, alarmMinutes, alarmSeconds] = alarm.split(":").map(time => parseInt(time));
     return {
         hour: alarmHours,
         min: alarmMinutes,
