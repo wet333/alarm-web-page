@@ -28,11 +28,12 @@
 
         <div class="main_clock-wrapper">
             <span class="main_clock-label">Ahora :</span>
-            <span id="now-time" class="main_clock-hours_display">10:00</span>
+            <span id="now-time" class="main_clock-hours_display">--:--:--</span>
         </div>
         <div class="alarm_manager-wrapper">
             <div class="alarm_manager-controls">
-                <input class="alarm_manager-controls--input" id="alarm-time-input" type="time" step="2">
+                <input class="alarm_manager-controls--text-input" id="alarm-text-input" type="text" placeholder="Descripcion...">
+                <input class="alarm_manager-controls--time-input" id="alarm-time-input" type="time" step="2">
                 <span class="alarm_manager-controls--button" id="add-alarm-button">
                     <i class="fa-solid fa-plus"></i>
                     <span>Agregar</span>

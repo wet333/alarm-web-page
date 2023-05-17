@@ -22,12 +22,39 @@ body {
     position: relative;
     flex-direction: column;
     background: #2a2a2a;
-    width: 50%;
     padding: 1rem 3rem;
     justify-content: center;
     align-content: center;
     border-radius: 10px;
     box-shadow: #0505052e 8px 8px 10px 0px;
+}
+@media (max-width: 992px) {
+    .main_wrapper {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        background: #2a2a2a;
+        padding: 1rem 3rem;
+        justify-content: center;
+        align-content: center;
+        border-radius: 10px;
+        box-shadow: #0505052e 8px 8px 10px 0px;
+        width: 90%; /* Set width to 100% for viewport width up to 768px */
+    }
+}
+@media (min-width: 993px) {
+    .main_wrapper {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        background: #2a2a2a;
+        padding: 1rem 3rem;
+        justify-content: center;
+        align-content: center;
+        border-radius: 10px;
+        box-shadow: #0505052e 8px 8px 10px 0px;
+        width: 50%; /* Set width to 50% for viewport width larger than 768px */
+    }
 }
 
 #music-controller_wrapper {
@@ -51,12 +78,12 @@ body {
     display: flex;
     position: absolute;
     visibility: hidden;
-    top: auto;
-    right: -25%;
+    top: -135px;
+    right: 0;
     flex-direction: column;
     background: #2a2a2a;
     width: auto;
-    padding: 0.75rem;
+    padding: 1rem;
     justify-content: center;
     border-radius: 10px;
     box-shadow: #0505052e 0px 0px 10px 5px;
@@ -101,12 +128,14 @@ body {
 
 .alarm_manager-controls {
     display: flex;
-    justify-content: center;
     margin-bottom: 1rem;
+    flex-direction: row;
+    gap: 1rem;
 }
 
-.alarm_manager-controls--input {
+.alarm_manager-controls--time-input {
     background: #3a3a3a;
+    width: 12rem;
     border: none;
     padding: 8px;
     color: white;
@@ -114,22 +143,36 @@ body {
     box-shadow: inset #00000024 0 0 6px 0px;
 }
 
-.alarm_manager-controls--input::-webkit-calendar-picker-indicator {
+.alarm_manager-controls--time-input::-webkit-calendar-picker-indicator {
     filter: invert(1);
 }
   
-.alarm_manager-controls--input::-webkit-inner-spin-button {
+.alarm_manager-controls--time-input::-webkit-inner-spin-button {
     display: none;
 }
 
-.alarm_manager-controls--input::-webkit-clear-button {
+.alarm_manager-controls--time-input::-webkit-clear-button {
     display: none;
+}
+
+.alarm_manager-controls--text-input {
+    background: #3a3a3a;
+    width: 100%;
+    border: none;
+    padding: 10px 8px 6px 8px;
+    color: white;
+    border-radius: 5px;
+    box-shadow: inset #00000024 0 0 6px 0px;
+}
+
+.alarm_manager-controls--text-input::placeholder {
+    color: rgb(173, 173, 173);
 }
 
 .alarm_manager-controls--button {
     border: none;
     padding: 8px;
-    margin-left: 1rem;
+    margin-left: auto;
     background: #96ff60;
     color: #033800;
     border-radius: 5px;
@@ -168,12 +211,14 @@ body {
 }
 
 .alarm_item {
-    padding: 5px 10px;
+    padding: 10px 15px;
     background: #f7f7f70d;
     border-radius: 7px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
+    flex-direction: row;
+    gap: 0.5rem;
 }
 
 .alarm_item:hover {
@@ -181,19 +226,20 @@ body {
 }
 
 .alarm_item-delete_btn {
-    color: #ff4d4d;
-    padding: 0px 5px;
-    border-radius: 5px;
-    margin-left: 5px;
-    font-size: 85%;
-    font-weight: 500;
+    color: #a5a5a5;
+    margin-left: auto;
     cursor: pointer;
+    font-size: 95%;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: center;
+    align-content: center;
+    gap: 3px;
 }
 .alarm_item-delete_btn:hover {
-    text-decoration: underline;
+    color: #ff4d4d;
 }
-
-
 
 .modal_bg {
     position: absolute;
