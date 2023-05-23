@@ -156,7 +156,9 @@ body {
 
 .alarm_manager-controls--time-input {
     background: #3a3a3a;
-    width: 12rem;
+    width: auto;
+    max-width: 12rem;
+    min-width: fit-content;
     border: none;
     padding: 8px;
     color: white;
