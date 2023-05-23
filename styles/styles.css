@@ -27,32 +27,11 @@ body {
     align-content: center;
     border-radius: 10px;
     box-shadow: #0505052e 8px 8px 10px 0px;
+    width: 90%;
 }
-@media (max-width: 780px) {
-    .main_wrapper {
-        display: flex;
-        position: relative;
-        flex-direction: column;
-        background: #2a2a2a;
-        padding: 1rem 3rem;
-        justify-content: center;
-        align-content: center;
-        border-radius: 10px;
-        box-shadow: #0505052e 8px 8px 10px 0px;
-        width: 90%;
-    }
-}
+
 @media (min-width: 781px) {
     .main_wrapper {
-        display: flex;
-        position: relative;
-        flex-direction: column;
-        background: #2a2a2a;
-        padding: 1rem 3rem;
-        justify-content: center;
-        align-content: center;
-        border-radius: 10px;
-        box-shadow: #0505052e 8px 8px 10px 0px;
         width: 75%;
         max-width: 800px;
     }
