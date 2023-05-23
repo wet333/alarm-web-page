@@ -223,6 +223,7 @@ body {
 
 .alarm-list__wrapper {
     display: none;
+    margin-top: 1rem;
 }
 
 .alarm_list {
