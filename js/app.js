@@ -1,11 +1,17 @@
 import * as musicController from "./alarm-music-controller.js";
 import { startClock, getCurrentTime } from "./clock.js";
+import { loadAlarms } from "./storage.js";
 
+// Start Application
 musicController.loadMusicController();
 startClock("now-time");
 
-// Start Application
-const alarmsArray = [];
+const alarmsArray = loadAlarms();
+// Restart all previous timeouts
+alarmsArray.forEach(alarm => {
+    const timeoutMS = calculateTimeoutMs(alarm.time);
+    alarm.timeOut = setTimeout(alarmTrigger, timeoutMS, alarm.id);
+});
 
 // Alarm Controls
 const addAlarmButton = document.getElementById("add-alarm-button");
@@ -34,13 +40,19 @@ function handleAddAlarm() {
 
     createAlarmList();
     clearInputs();
+    saveAlarms(alarmsArray);
 }
 
 function alarmTrigger(alarmId) {
+    musicController.getActiveSong().currentTime = 0;    // Restarts song
     musicController.getActiveSong().play();
+
     document.getElementById("modal").style.display = "flex";
 
-    alarmsArray = alarmsArray.filter(alarm => alarm.id !== alarmId);
+    const indexToRemove = alarmsArray.findIndex(alarm => alarm.id === alarmId);
+    if (indexToRemove !== -1) {
+        alarmsArray.splice(indexToRemove, 1);
+    }
 
     updateAlarmListVisibility();
     createAlarmList();
@@ -127,6 +139,7 @@ function handleDeleteAlarm(e) {
 
     updateAlarmListVisibility();
     createAlarmList();
+    saveAlarms(alarmsArray);
 }
 
 function getAlarmById(id) {
