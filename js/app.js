@@ -1,17 +1,23 @@
 import * as musicController from "./alarm-music-controller.js";
 import { startClock, getCurrentTime } from "./clock.js";
-import { loadAlarms } from "./storage.js";
-
-// Start Application
-musicController.loadMusicController();
-startClock("now-time");
+import { loadAlarms, saveAlarms } from "./storage.js";
 
 const alarmsArray = loadAlarms();
-// Restart all previous timeouts
-alarmsArray.forEach(alarm => {
-    const timeoutMS = calculateTimeoutMs(alarm.time);
-    alarm.timeOut = setTimeout(alarmTrigger, timeoutMS, alarm.id);
-});
+
+// Start Application
+function startApp() {
+    musicController.loadMusicController();
+    startClock("now-time");
+
+    // Restart all previous timeouts
+    alarmsArray.forEach(alarm => {
+        const timeoutMS = calculateTimeoutMs(alarm.time);
+        alarm.timeOut = setTimeout(alarmTrigger, timeoutMS, alarm.id);
+    });
+    createAlarmList();
+    updateAlarmListVisibility();
+}
+startApp();
 
 // Alarm Controls
 const addAlarmButton = document.getElementById("add-alarm-button");
