@@ -3,7 +3,12 @@ function loadMusicController() {
     const musicControllerList = document.getElementById("music-controller_list");
 
     // Al subirla al host agregar un . al inicio de cada ruta para que sea relativa
-    loadMusicMP3s(["/audio/back-to-life-birthdae.mp3", "/audio/dualipa-levitating.mp3", "/audio/rocky-theme.mp3", "/audio/weekend-the-hills.mp3"]);
+    loadMusicMP3s([
+        "./audio/back-to-life-birthdae.mp3", 
+        "./audio/dualipa-levitating.mp3", 
+        "./audio/rocky-theme.mp3", 
+        "./audio/weekend-the-hills.mp3"
+    ]);
     
     let isPanelVisible = false;
 
