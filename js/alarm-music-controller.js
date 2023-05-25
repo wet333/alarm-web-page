@@ -4,10 +4,11 @@ function loadMusicController() {
 
     // Al subirla al host agregar un . al inicio de cada ruta para que sea relativa
     loadMusicMP3s([
-        "./audio/back-to-life-birthdae.mp3", 
-        "./audio/dualipa-levitating.mp3", 
-        "./audio/rocky-theme.mp3", 
-        "./audio/weekend-the-hills.mp3"
+        "./audio/rock-it-coma-media.mp3", 
+        "./audio/cyber-war-alexiAction.mp3",
+        "./audio/cyber-attack-alexiAction.mp3",
+        "./audio/curious-mountain.mp3",
+        "./audio/forest-lullaby-lesfm.mp3",
     ]);
     
     let isPanelVisible = false;
