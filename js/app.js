@@ -59,6 +59,7 @@ function alarmTrigger(alarmId) {
     if (indexToRemove !== -1) {
         alarmsArray.splice(indexToRemove, 1);
     }
+    saveAlarms(alarmsArray);
 
     updateAlarmListVisibility();
     createAlarmList();
